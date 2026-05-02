@@ -1,4 +1,4 @@
-# ⚙ Control Systems Analyzer
+# ⚙ Control Systems Analyzer — YPOLOGISMOS-ROUTH
 
 [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=jimkava/YPOLOGISMOS-ROUTH&file=ControlSystemsAnalyzer.m)
 
@@ -66,4 +66,3 @@ YPOLOGISMOS-ROUTH/
 
 **Dimitrios Kavalieros**  
 [GitHub Profile](https://github.com/jimkava)
-
