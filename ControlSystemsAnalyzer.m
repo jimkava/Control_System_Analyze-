@@ -1,6 +1,6 @@
 classdef ControlSystemsAnalyzer < matlab.apps.AppBase
 % ControlSystemsAnalyzer  — Control Systems Analyzer
-% Author: Dimitrios Kavalieros, Electrical Engineer MSc. & MEd.
+% Author: Dimitrios Kavalieros, Electrical Engineering and Information Technology MSc. & MEd.
 % GitHub: https://github.com/jimkava/Control_System_Analyze-
 %
 % Requires: MATLAB R2019b+ with Control System Toolbox
@@ -171,7 +171,7 @@ classdef ControlSystemsAnalyzer < matlab.apps.AppBase
             ax = app.BlockAxes;
             cla(ax);
             hold(ax, 'on');
-            ax.XLim = [0 11]; ax.YLim = [0 6];
+            ax.XLim = [0 10]; ax.YLim = [0 6];
             ax.Color = [0.02 0.04 0.08];
             ax.XAxis.Visible = 'off'; ax.YAxis.Visible = 'off';
             ax.Box = 'off';
@@ -194,12 +194,12 @@ classdef ControlSystemsAnalyzer < matlab.apps.AppBase
             plot(ax,[1.9 2.5],[midY midY],'Color',wireC,'LineWidth',2);
             plot(ax,[4.1 4.8],[midY midY],'Color',wireC,'LineWidth',2);
             plot(ax,[6.4 7.5],[midY midY],'Color',wireC,'LineWidth',2);
-            plot(ax,[7.5 10.6],[midY midY],'Color',wireC,'LineWidth',2);
+            plot(ax,[7.5 9.7],[midY midY],'Color',wireC,'LineWidth',2);
 
             % --- Labels R, Y ---
             text(ax,0.25,midY,'R(s)','Color',wireC,'HorizontalAlignment','right',...
                 'FontSize',14,'FontName',fontN,'VerticalAlignment','middle');
-            text(ax,10.65,midY,'Y(s)','Color',wireC,'HorizontalAlignment','left',...
+            text(ax,9.75,midY,'Y(s)','Color',wireC,'HorizontalAlignment','left',...
                 'FontSize',14,'FontName',fontN,'VerticalAlignment','middle');
 
             % --- Summing junction ---
@@ -647,28 +647,26 @@ classdef ControlSystemsAnalyzer < matlab.apps.AppBase
             %% Figure
             app.UIFigure = uifigure('Visible','off');
             app.UIFigure.Color = BG;
-            ss = get(0,'ScreenSize'); w=min(1280,ss(3)-60); h=min(820,ss(4)-80);
-            app.UIFigure.Position = [max(10,(ss(3)-w)/2) max(10,(ss(4)-h)/2) w h];
-            app.UIFigure.Name = 'Control Systems Analyzer — D. Kavalieros, EE MSc. & MEd.';
+            app.UIFigure.Position = [50 50 1400 820];
+            app.UIFigure.Name = 'Control Systems Analyzer — D.Kavalieros, Electrical Engineering and Information Technology MSc. & MEd.';
             app.UIFigure.Resize = 'on';
 
             %% Top bar
             app.TopPanel = uipanel(app.UIFigure);
             app.TopPanel.BackgroundColor = [0.02 0.04 0.08];
             app.TopPanel.BorderType = 'none';
-            app.TopPanel.Units = 'normalized';
-            app.TopPanel.Position = [0 0.95 1 0.05];
+            app.TopPanel.Position = [0 780 1280 40];
 
             app.AppTitleLabel = uilabel(app.TopPanel,...
-                'Text','⚙  CONTROL SYSTEMS ANALYZER  —  D. Kavalieros, EE MSc. & MEd.');
+                'Text','⚙  CONTROL SYSTEMS ANALYZER  —  D.Kavalieros, Electrical Engineering and Information Technology MSc. & MEd.');
             app.AppTitleLabel.FontColor  = [0 0.78 0.88];
             app.AppTitleLabel.FontSize   = 16;
             app.AppTitleLabel.FontWeight = 'bold';
             app.AppTitleLabel.FontName   = 'Courier New';
-            app.AppTitleLabel.Position   = [12 6 800 26];
+            app.AppTitleLabel.Position   = [12 10 700 22];
 
             app.SubTitleLabel = uilabel(app.TopPanel,...
-                'Text','Dimitrios Kavalieros  |  Electrical Engineer MSc. & MEd.  |  IEC / IEEE');
+                'Text','Dimitrios Kavalieros  |  Electrical Engineering and Information Technology MSc. & MEd.');
             app.SubTitleLabel.FontColor = [0.23 0.33 0.50];
             app.SubTitleLabel.FontSize  = 11;
             app.SubTitleLabel.FontName  = 'Courier New';
@@ -676,7 +674,7 @@ classdef ControlSystemsAnalyzer < matlab.apps.AppBase
 
             app.CalculateButton = uibutton(app.TopPanel,'push',...
                 'Text','▶  CALCULATE');
-            app.CalculateButton.Position        = [900 5 180 28];
+            app.CalculateButton.Position        = [1120 7 148 26];
             app.CalculateButton.BackgroundColor = [0.94 0.65 0];
             app.CalculateButton.FontColor       = [0 0 0];
             app.CalculateButton.FontWeight      = 'bold';
@@ -686,7 +684,7 @@ classdef ControlSystemsAnalyzer < matlab.apps.AppBase
 
             %% Main grid (below top bar)
             app.MainGrid = uigridlayout(app.UIFigure);
-            app.MainGrid.ColumnWidth  = {440,'1x'};
+            app.MainGrid.ColumnWidth  = {480,'1x'};
             app.MainGrid.RowHeight    = {'1x'};
             app.MainGrid.BackgroundColor = BG;
             app.MainGrid.Padding      = [6 6 6 6];
@@ -813,15 +811,13 @@ classdef ControlSystemsAnalyzer < matlab.apps.AppBase
             app.RightPanel.Layout.Row = 1; app.RightPanel.Layout.Column = 2;
 
             app.ResultsTabGroup = uitabgroup(app.RightPanel);
-            app.ResultsTabGroup.Units = 'normalized';
-            app.ResultsTabGroup.Position = [0 0 1 1];
+            app.ResultsTabGroup.Position = [4 4 820 762];
 
             %% ─ Tab: Block Diagram ─
             app.BlockDiagramTab = uitab(app.ResultsTabGroup,'Title','Block Diagram');
             app.BlockDiagramTab.BackgroundColor = BG;
             app.BlockAxes = uiaxes(app.BlockDiagramTab);
-            app.BlockAxes.Units = 'normalized';
-            app.BlockAxes.Position = [0.01 0.01 0.98 0.97];
+            app.BlockAxes.Position = [10 10 800 730];
             app.BlockAxes.Color    = [0.02 0.04 0.08];
             app.BlockAxes.XAxis.Visible = 'off';
             app.BlockAxes.YAxis.Visible = 'off';
@@ -900,8 +896,7 @@ classdef ControlSystemsAnalyzer < matlab.apps.AppBase
             app.RLocusTab = uitab(app.ResultsTabGroup,'Title','Root Locus');
             app.RLocusTab.BackgroundColor = BG;
             app.RLocusAxes = uiaxes(app.RLocusTab);
-            app.RLocusAxes.Units = 'normalized';
-            app.RLocusAxes.Position = [0.01 0.01 0.98 0.97];
+            app.RLocusAxes.Position = [10 10 800 730];
             app.RLocusAxes.Color    = [0.027 0.063 0.118];
             app.RLocusAxes.XColor   = [0.53 0.60 0.72];
             app.RLocusAxes.YColor   = [0.53 0.60 0.72];
@@ -936,8 +931,7 @@ classdef ControlSystemsAnalyzer < matlab.apps.AppBase
             app.NicholsTab = uitab(app.ResultsTabGroup,'Title','Nichols');
             app.NicholsTab.BackgroundColor = BG;
             app.NicholsAxes = uiaxes(app.NicholsTab);
-            app.NicholsAxes.Units = 'normalized';
-            app.NicholsAxes.Position = [0.01 0.01 0.98 0.97];
+            app.NicholsAxes.Position = [10 10 800 730];
             app.NicholsAxes.Color    = [0.027 0.063 0.118];
             app.NicholsAxes.XColor   = [0.53 0.60 0.72];
             app.NicholsAxes.YColor   = [0.53 0.60 0.72];
