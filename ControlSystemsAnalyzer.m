@@ -1,5 +1,7 @@
 classdef ControlSystemsAnalyzer < matlab.apps.AppBase
 % ControlSystemsAnalyzer  — Control Systems Analyzer
+% Author: Dimitrios Kavalieros, Electrical Engineer MSc. & MEd.
+% GitHub: https://github.com/jimkava/Control_System_Analyze-
 %
 % Requires: MATLAB R2019b+ with Control System Toolbox
 %
@@ -646,7 +648,7 @@ classdef ControlSystemsAnalyzer < matlab.apps.AppBase
             app.UIFigure = uifigure('Visible','off');
             app.UIFigure.Color = BG;
             app.UIFigure.Position = [50 50 1280 820];
-            app.UIFigure.Name = 'Control Systems Analyzer';
+            app.UIFigure.Name = 'Control Systems Analyzer — D. Kavalieros, EE MSc. & MEd.';
             app.UIFigure.Resize = 'on';
 
             %% Top bar
@@ -656,7 +658,7 @@ classdef ControlSystemsAnalyzer < matlab.apps.AppBase
             app.TopPanel.Position = [0 780 1280 40];
 
             app.AppTitleLabel = uilabel(app.TopPanel,...
-                'Text','⚙  CONTROL SYSTEMS ANALYZER');
+                'Text','⚙  CONTROL SYSTEMS ANALYZER  —  D. Kavalieros, EE MSc. & MEd.');
             app.AppTitleLabel.FontColor  = [0 0.78 0.88];
             app.AppTitleLabel.FontSize   = 16;
             app.AppTitleLabel.FontWeight = 'bold';
@@ -664,7 +666,7 @@ classdef ControlSystemsAnalyzer < matlab.apps.AppBase
             app.AppTitleLabel.Position   = [12 10 700 22];
 
             app.SubTitleLabel = uilabel(app.TopPanel,...
-                'Text','IEC / IEEE Control Systems Toolbox');
+                'Text','Dimitrios Kavalieros  |  Electrical Engineer MSc. & MEd.  |  IEC / IEEE');
             app.SubTitleLabel.FontColor = [0.23 0.33 0.50];
             app.SubTitleLabel.FontSize  = 11;
             app.SubTitleLabel.FontName  = 'Courier New';

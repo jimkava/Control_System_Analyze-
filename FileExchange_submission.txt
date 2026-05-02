@@ -1,0 +1,94 @@
+=== TITLE ===
+Control Systems Analyzer — Interactive MATLAB App
+
+
+=== SHORT DESCRIPTION (1 line) ===
+Interactive dark-theme MATLAB app for closed-loop control system analysis: Block Diagram, Routh–Hurwitz, Root Locus, Bode, Nichols, Poles/Zeros.
+
+
+=== FULL DESCRIPTION ===
+Control Systems Analyzer is a single-file MATLAB App (classdef) for the analysis of linear time-invariant (LTI) control systems in the frequency and time domain.
+
+Designed for students, educators, and engineers, the app provides a clean dark-theme interface with 7 analysis tabs that update automatically whenever input values change.
+
+────────────────────────────────────────
+FEATURES
+────────────────────────────────────────
+
+► Block Diagram
+   Visual representation of the closed-loop system with Controller Gc(s),
+   Plant G(s), and optional Sensor H(s) blocks. Supports both negative
+   and positive feedback configurations.
+
+► Transfer Function Results
+   Computes and displays:
+   - Open-loop transfer function: Gc(s)·G(s)·H(s)
+   - Closed-loop transfer function: T(s)
+   - Characteristic equation
+
+► Routh–Hurwitz Stability Analysis
+   Full Routh array with automatic stability verdict:
+   ✓ STABLE / ⚠ MARGINAL / ✗ UNSTABLE
+   with sign-change count and RHP pole count.
+
+► Poles & Zeros Table
+   All closed-loop and open-loop poles and zeros with:
+   - Real and imaginary parts
+   - Magnitude and angle
+   - LHP / RHP / jω-axis classification
+
+► Root Locus
+   Parametric root locus plot for K ∈ [0, K_max] with
+   configurable step count, RHP shading, and legend.
+
+► Bode Diagram
+   Magnitude (dB) and Phase (°) plots with:
+   - Configurable frequency range (10^n rad/s)
+   - Gain Margin and Phase Margin display
+   - Color-coded stability indication
+
+► Nichols Chart
+   Open-loop frequency response on the Nichols plane
+   with critical point (−180°, 0 dB) marker.
+
+────────────────────────────────────────
+USAGE
+────────────────────────────────────────
+
+>> ControlSystemsAnalyzer
+
+Enter numerator and denominator polynomial coefficients
+separated by spaces, from highest to lowest power.
+
+Example:   1 3 2   →   s² + 3s + 2
+
+All plots and tables update automatically on input change.
+
+────────────────────────────────────────
+REQUIREMENTS
+────────────────────────────────────────
+
+- MATLAB R2019b or later
+- Control System Toolbox
+
+────────────────────────────────────────
+AUTHOR
+────────────────────────────────────────
+
+Dimitrios Kavalieros
+Electrical Engineer MSc. & MEd.
+GitHub: https://github.com/jimkava/Control_System_Analyze-
+
+
+=== TAGS ===
+control systems, transfer function, bode plot, root locus, routh hurwitz,
+nichols chart, stability analysis, frequency response, closed loop, LTI,
+matlab app, uifigure, dark theme, feedback control, poles zeros
+
+
+=== CATEGORY ===
+Control Systems → Analysis Tools
+
+
+=== LICENSE ===
+BSD 2-Clause (or Creative Commons CC BY 4.0)
