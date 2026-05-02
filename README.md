@@ -1,6 +1,6 @@
-# ⚙ Control Systems Analyzer
+# ⚙ Control Systems Analyzer — YPOLOGISMOS-ROUTH
 
-[![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=jimkava/YPOLOGISMOS-ROUTH&file=ControlSystemsAnalyzer.m)
+[![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=jimkava/Control_System_Analyze-&file=ControlSystemsAnalyzer.m)
 
 A MATLAB App for analysis of automatic control systems.  
 Built with MATLAB R2019b+ and the **Control System Toolbox**.
