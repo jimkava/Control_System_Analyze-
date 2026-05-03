@@ -1,6 +1,6 @@
 classdef ControlSystemsAnalyzer < matlab.apps.AppBase
 % ControlSystemsAnalyzer  — Control Systems Analyzer
-% Author: Dimitrios Kavalieros, Electrical Engineer MSc. & MEd.
+% Author: Dimitrios Kavalieros, Electrical Engineering and Information Technology MSc. & MEd.
 % GitHub: https://github.com/jimkava/Control_System_Analyze-
 %
 % Requires: MATLAB R2019b+ with Control System Toolbox
@@ -812,7 +812,7 @@ classdef ControlSystemsAnalyzer < matlab.apps.AppBase
             app.UIFigure.Color = BG;
             ss = get(0,'ScreenSize'); w=min(1280,ss(3)-60); h=min(820,ss(4)-80);
             app.UIFigure.Position = [max(10,(ss(3)-w)/2) max(10,(ss(4)-h)/2) w h];
-            app.UIFigure.Name = 'Control Systems Analyzer — D. Kavalieros, EE MSc. & MEd.';
+            app.UIFigure.Name = 'Control Systems Analyzer — D. Kavalieros, E.E.I. MSc. & MEd.';
             app.UIFigure.Resize = 'on';
 
             %% Outer grid: 2 rows — top bar + content
@@ -845,7 +845,7 @@ classdef ControlSystemsAnalyzer < matlab.apps.AppBase
             titleBox.Layout.Row = 1; titleBox.Layout.Column = 1;
 
             app.AppTitleLabel = uilabel(titleBox,...
-                'Text','⚙  CONTROL SYSTEMS ANALYZER  —  D. Kavalieros, EE MSc. & MEd.');
+                'Text','⚙  CONTROL SYSTEMS ANALYZER  —  D.Kavalieros — Dipl. EE & IT, MSc. & MEd.');
             app.AppTitleLabel.FontColor  = [0 0.78 0.88];
             app.AppTitleLabel.FontSize   = 14;
             app.AppTitleLabel.FontWeight = 'bold';
@@ -853,7 +853,7 @@ classdef ControlSystemsAnalyzer < matlab.apps.AppBase
             app.AppTitleLabel.Layout.Row = 1; app.AppTitleLabel.Layout.Column = 1;
 
             app.SubTitleLabel = uilabel(titleBox,...
-                'Text','Dimitrios Kavalieros  |  Electrical Engineer MSc. & MEd.  |  IEC / IEEE');
+                'Text','Dimitrios Kavalieros  |  D.Kavalieros — Dipl. EE & IT, MSc. & MEd.');
             app.SubTitleLabel.FontColor = [0.23 0.33 0.50];
             app.SubTitleLabel.FontSize  = 10;
             app.SubTitleLabel.FontName  = 'Courier New';
