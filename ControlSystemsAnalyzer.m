@@ -379,9 +379,9 @@ classdef ControlSystemsAnalyzer < matlab.apps.AppBase
         function renderRootLocus(app, OL, kMax, kSteps)
             ax = app.RLocusAxes;
             cla(ax); hold(ax,'on');
-            ax.Color = [0.027 0.063 0.118];
-            ax.XColor = [0.53 0.60 0.72]; ax.YColor = [0.53 0.60 0.72];
-            ax.GridColor = [0.05 0.11 0.19];
+            ax.Color = [1 1 1];
+            ax.XColor = [0 0 0]; ax.YColor = [0 0 0];
+            ax.GridColor = [0.85 0.85 0.85];
             ax.FontName = 'Courier New'; ax.FontSize = 13;
             grid(ax,'on');
 
@@ -482,14 +482,14 @@ classdef ControlSystemsAnalyzer < matlab.apps.AppBase
                  [1 0.27 0.27],'FaceAlpha',0.05,'EdgeColor','none',...
                  'HandleVisibility','off');
 
-            xlabel(ax,'Re(s)','Color',[0.78 0.85 0.94],'FontSize',14);
-            ylabel(ax,'Im(s)','Color',[0.78 0.85 0.94],'FontSize',14);
+            xlabel(ax,'Re(s)','Color',[0 0 0],'FontSize',14);
+            ylabel(ax,'Im(s)','Color',[0 0 0],'FontSize',14);
             title(ax,['Root Locus — K \in [0, ' num2str(kMax) ']'],...
-                'Color',[0.78 0.85 0.94],'FontSize',13,'FontName','Courier New');
+                'Color',[0 0 0],'FontSize',13,'FontName','Courier New');
             leg = legend(ax,'show');
-            leg.TextColor = [0.78 0.85 0.94];
-            leg.Color     = [0.05 0.09 0.13];
-            leg.EdgeColor = [0.12 0.19 0.31];
+            leg.TextColor = [0 0 0];
+            leg.Color     = [1 1 1];
+            leg.EdgeColor = [0.7 0.7 0.7];
             hold(ax,'off');
 
             function v = ifelse(cond,a,b)
@@ -508,30 +508,30 @@ classdef ControlSystemsAnalyzer < matlab.apps.AppBase
             phaseUnwrap = unwrap(phase*pi/180)*180/pi;
 
             ax1 = app.BodeMagAxes; cla(ax1); hold(ax1,'on');
-            ax1.Color = [0.027 0.063 0.118];
-            ax1.XColor = [0.53 0.60 0.72]; ax1.YColor = [0.53 0.60 0.72];
-            ax1.GridColor = [0.05 0.11 0.19];
+            ax1.Color = [1 1 1];
+            ax1.XColor = [0 0 0]; ax1.YColor = [0 0 0];
+            ax1.GridColor = [0.85 0.85 0.85];
             ax1.XScale = 'log'; ax1.FontName = 'Courier New'; ax1.FontSize=13;
             grid(ax1,'on');
             plot(ax1,omega,magdB,'Color',[0 0.78 0.88],'LineWidth',2.5);
             plot(ax1,[omega(1) omega(end)],[0 0],'--','Color',[1 0.27 0.27],...
                 'LineWidth',1,'HandleVisibility','off');
-            ylabel(ax1,'Magnitude (dB)','Color',[0.78 0.85 0.94],'FontSize',14);
-            title(ax1,'Bode Diagram','Color',[0.78 0.85 0.94],...
+            ylabel(ax1,'Magnitude (dB)','Color',[0 0 0],'FontSize',14);
+            title(ax1,'Bode Diagram','Color',[0 0 0],...
                 'FontSize',13,'FontName','Courier New');
             hold(ax1,'off');
 
             ax2 = app.BodePhaseAxes; cla(ax2); hold(ax2,'on');
-            ax2.Color = [0.027 0.063 0.118];
-            ax2.XColor = [0.53 0.60 0.72]; ax2.YColor = [0.53 0.60 0.72];
-            ax2.GridColor = [0.05 0.11 0.19];
+            ax2.Color = [1 1 1];
+            ax2.XColor = [0 0 0]; ax2.YColor = [0 0 0];
+            ax2.GridColor = [0.85 0.85 0.85];
             ax2.XScale = 'log'; ax2.FontName = 'Courier New'; ax2.FontSize=13;
             grid(ax2,'on');
             plot(ax2,omega,phaseUnwrap,'Color',[0.94 0.65 0],'LineWidth',2.5);
             plot(ax2,[omega(1) omega(end)],[-180 -180],'--',...
                 'Color',[1 0.27 0.27],'LineWidth',1,'HandleVisibility','off');
-            xlabel(ax2,'ω (rad/s)','Color',[0.78 0.85 0.94],'FontSize',14);
-            ylabel(ax2,'Phase (°)','Color',[0.78 0.85 0.94],'FontSize',14);
+            xlabel(ax2,'ω (rad/s)','Color',[0 0 0],'FontSize',14);
+            ylabel(ax2,'Phase (°)','Color',[0 0 0],'FontSize',14);
             hold(ax2,'off');
 
             try
@@ -565,9 +565,9 @@ classdef ControlSystemsAnalyzer < matlab.apps.AppBase
             phaseUnwrap = unwrap(phase*pi/180)*180/pi;
 
             ax = app.NicholsAxes; cla(ax); hold(ax,'on');
-            ax.Color = [0.027 0.063 0.118];
-            ax.XColor = [0.53 0.60 0.72]; ax.YColor = [0.53 0.60 0.72];
-            ax.GridColor = [0.05 0.11 0.19];
+            ax.Color = [1 1 1];
+            ax.XColor = [0 0 0]; ax.YColor = [0 0 0];
+            ax.GridColor = [0.85 0.85 0.85];
             ax.FontName = 'Courier New'; ax.FontSize = 13;
             grid(ax,'on');
 
@@ -586,14 +586,14 @@ classdef ControlSystemsAnalyzer < matlab.apps.AppBase
             plot(ax,[-180 -180],yLim,'Color',[1 0.27 0.27 0.4],'LineWidth',1,...
                 'LineStyle',':','HandleVisibility','off');
 
-            xlabel(ax,'Phase (°)','Color',[0.78 0.85 0.94],'FontSize',14);
-            ylabel(ax,'Magnitude (dB)','Color',[0.78 0.85 0.94],'FontSize',14);
-            title(ax,'Nichols Chart','Color',[0.78 0.85 0.94],...
+            xlabel(ax,'Phase (°)','Color',[0 0 0],'FontSize',14);
+            ylabel(ax,'Magnitude (dB)','Color',[0 0 0],'FontSize',14);
+            title(ax,'Nichols Chart','Color',[0 0 0],...
                 'FontSize',13,'FontName','Courier New');
             leg = legend(ax,'show');
-            leg.TextColor = [0.78 0.85 0.94];
-            leg.Color     = [0.05 0.09 0.13];
-            leg.EdgeColor = [0.12 0.19 0.31];
+            leg.TextColor = [0 0 0];
+            leg.Color     = [1 1 1];
+            leg.EdgeColor = [0.7 0.7 0.7];
             hold(ax,'off');
         end
 
