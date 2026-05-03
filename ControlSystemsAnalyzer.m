@@ -1,6 +1,6 @@
 classdef ControlSystemsAnalyzer < matlab.apps.AppBase
 % ControlSystemsAnalyzer  — Control Systems Analyzer
-% Author: Dimitrios Kavalieros, Electrical Engineering and Information Technology MSc. & MEd.
+% Author: Dimitrios Kavalieros, Electrical Engineer MSc. & MEd.
 % GitHub: https://github.com/jimkava/Control_System_Analyze-
 %
 % Requires: MATLAB R2019b+ with Control System Toolbox
@@ -171,7 +171,7 @@ classdef ControlSystemsAnalyzer < matlab.apps.AppBase
             ax = app.BlockAxes;
             cla(ax);
             hold(ax, 'on');
-            ax.XLim = [0 10]; ax.YLim = [0 6];
+            ax.XLim = [0 11]; ax.YLim = [0 6];
             ax.Color = [0.02 0.04 0.08];
             ax.XAxis.Visible = 'off'; ax.YAxis.Visible = 'off';
             ax.Box = 'off';
@@ -194,12 +194,12 @@ classdef ControlSystemsAnalyzer < matlab.apps.AppBase
             plot(ax,[1.9 2.5],[midY midY],'Color',wireC,'LineWidth',2);
             plot(ax,[4.1 4.8],[midY midY],'Color',wireC,'LineWidth',2);
             plot(ax,[6.4 7.5],[midY midY],'Color',wireC,'LineWidth',2);
-            plot(ax,[7.5 9.7],[midY midY],'Color',wireC,'LineWidth',2);
+            plot(ax,[7.5 10.6],[midY midY],'Color',wireC,'LineWidth',2);
 
             % --- Labels R, Y ---
             text(ax,0.25,midY,'R(s)','Color',wireC,'HorizontalAlignment','right',...
                 'FontSize',14,'FontName',fontN,'VerticalAlignment','middle');
-            text(ax,9.75,midY,'Y(s)','Color',wireC,'HorizontalAlignment','left',...
+            text(ax,10.65,midY,'Y(s)','Color',wireC,'HorizontalAlignment','left',...
                 'FontSize',14,'FontName',fontN,'VerticalAlignment','middle');
 
             % --- Summing junction ---
@@ -379,10 +379,12 @@ classdef ControlSystemsAnalyzer < matlab.apps.AppBase
         function renderRootLocus(app, OL, kMax, kSteps)
             ax = app.RLocusAxes;
             cla(ax); hold(ax,'on');
-            ax.Color = [1 1 1];
-            ax.XColor = [0 0 0]; ax.YColor = [0 0 0];
-            ax.GridColor = [0.85 0.85 0.85];
+            ax.Color = [0.027 0.063 0.118];
+            ax.XColor = [1 1 1]; ax.YColor = [1 1 1];
+            ax.GridColor = [0.12 0.20 0.35];
             ax.FontName = 'Courier New'; ax.FontSize = 13;
+            ax.XAxis.Color = [1 1 1]; ax.YAxis.Color = [1 1 1];
+            ax.TickLabelInterpreter = 'none';
             grid(ax,'on');
 
             [olN, olD] = tfdata(OL,'v');
@@ -482,14 +484,14 @@ classdef ControlSystemsAnalyzer < matlab.apps.AppBase
                  [1 0.27 0.27],'FaceAlpha',0.05,'EdgeColor','none',...
                  'HandleVisibility','off');
 
-            xlabel(ax,'Re(s)','Color',[0 0 0],'FontSize',14);
-            ylabel(ax,'Im(s)','Color',[0 0 0],'FontSize',14);
+            xlabel(ax,'Re(s)','Color',[0.78 0.85 0.94],'FontSize',14);
+            ylabel(ax,'Im(s)','Color',[0.78 0.85 0.94],'FontSize',14);
             title(ax,['Root Locus — K \in [0, ' num2str(kMax) ']'],...
-                'Color',[0 0 0],'FontSize',13,'FontName','Courier New');
+                'Color',[0.78 0.85 0.94],'FontSize',13,'FontName','Courier New');
             leg = legend(ax,'show');
-            leg.TextColor = [0 0 0];
-            leg.Color     = [1 1 1];
-            leg.EdgeColor = [0.7 0.7 0.7];
+            leg.TextColor = [0.78 0.85 0.94];
+            leg.Color     = [0.05 0.09 0.13];
+            leg.EdgeColor = [0.12 0.19 0.31];
             hold(ax,'off');
 
             function v = ifelse(cond,a,b)
@@ -508,30 +510,32 @@ classdef ControlSystemsAnalyzer < matlab.apps.AppBase
             phaseUnwrap = unwrap(phase*pi/180)*180/pi;
 
             ax1 = app.BodeMagAxes; cla(ax1); hold(ax1,'on');
-            ax1.Color = [1 1 1];
-            ax1.XColor = [0 0 0]; ax1.YColor = [0 0 0];
-            ax1.GridColor = [0.85 0.85 0.85];
+            ax1.Color = [0.027 0.063 0.118];
+            ax1.XColor = [1 1 1]; ax1.YColor = [1 1 1];
+            ax1.GridColor = [0.12 0.20 0.35];
             ax1.XScale = 'log'; ax1.FontName = 'Courier New'; ax1.FontSize=13;
+            ax1.XAxis.Color = [1 1 1]; ax1.YAxis.Color = [1 1 1];
             grid(ax1,'on');
             plot(ax1,omega,magdB,'Color',[0 0.78 0.88],'LineWidth',2.5);
             plot(ax1,[omega(1) omega(end)],[0 0],'--','Color',[1 0.27 0.27],...
                 'LineWidth',1,'HandleVisibility','off');
-            ylabel(ax1,'Magnitude (dB)','Color',[0 0 0],'FontSize',14);
-            title(ax1,'Bode Diagram','Color',[0 0 0],...
+            ylabel(ax1,'Magnitude (dB)','Color',[0.78 0.85 0.94],'FontSize',14);
+            title(ax1,'Bode Diagram','Color',[0.78 0.85 0.94],...
                 'FontSize',13,'FontName','Courier New');
             hold(ax1,'off');
 
             ax2 = app.BodePhaseAxes; cla(ax2); hold(ax2,'on');
-            ax2.Color = [1 1 1];
-            ax2.XColor = [0 0 0]; ax2.YColor = [0 0 0];
-            ax2.GridColor = [0.85 0.85 0.85];
+            ax2.Color = [0.027 0.063 0.118];
+            ax2.XColor = [1 1 1]; ax2.YColor = [1 1 1];
+            ax2.GridColor = [0.12 0.20 0.35];
             ax2.XScale = 'log'; ax2.FontName = 'Courier New'; ax2.FontSize=13;
+            ax2.XAxis.Color = [1 1 1]; ax2.YAxis.Color = [1 1 1];
             grid(ax2,'on');
             plot(ax2,omega,phaseUnwrap,'Color',[0.94 0.65 0],'LineWidth',2.5);
             plot(ax2,[omega(1) omega(end)],[-180 -180],'--',...
                 'Color',[1 0.27 0.27],'LineWidth',1,'HandleVisibility','off');
-            xlabel(ax2,'ω (rad/s)','Color',[0 0 0],'FontSize',14);
-            ylabel(ax2,'Phase (°)','Color',[0 0 0],'FontSize',14);
+            xlabel(ax2,'ω (rad/s)','Color',[0.78 0.85 0.94],'FontSize',14);
+            ylabel(ax2,'Phase (°)','Color',[0.78 0.85 0.94],'FontSize',14);
             hold(ax2,'off');
 
             try
@@ -565,10 +569,12 @@ classdef ControlSystemsAnalyzer < matlab.apps.AppBase
             phaseUnwrap = unwrap(phase*pi/180)*180/pi;
 
             ax = app.NicholsAxes; cla(ax); hold(ax,'on');
-            ax.Color = [1 1 1];
-            ax.XColor = [0 0 0]; ax.YColor = [0 0 0];
-            ax.GridColor = [0.85 0.85 0.85];
+            ax.Color = [0.027 0.063 0.118];
+            ax.XColor = [1 1 1]; ax.YColor = [1 1 1];
+            ax.GridColor = [0.12 0.20 0.35];
             ax.FontName = 'Courier New'; ax.FontSize = 13;
+            ax.XAxis.Color = [1 1 1]; ax.YAxis.Color = [1 1 1];
+            ax.TickLabelInterpreter = 'none';
             grid(ax,'on');
 
             plot(ax,phaseUnwrap,magdB,'Color',[0 0.78 0.88],'LineWidth',2.5,...
@@ -586,14 +592,14 @@ classdef ControlSystemsAnalyzer < matlab.apps.AppBase
             plot(ax,[-180 -180],yLim,'Color',[1 0.27 0.27 0.4],'LineWidth',1,...
                 'LineStyle',':','HandleVisibility','off');
 
-            xlabel(ax,'Phase (°)','Color',[0 0 0],'FontSize',14);
-            ylabel(ax,'Magnitude (dB)','Color',[0 0 0],'FontSize',14);
-            title(ax,'Nichols Chart','Color',[0 0 0],...
+            xlabel(ax,'Phase (°)','Color',[0.78 0.85 0.94],'FontSize',14);
+            ylabel(ax,'Magnitude (dB)','Color',[0.78 0.85 0.94],'FontSize',14);
+            title(ax,'Nichols Chart','Color',[0.78 0.85 0.94],...
                 'FontSize',13,'FontName','Courier New');
             leg = legend(ax,'show');
-            leg.TextColor = [0 0 0];
-            leg.Color     = [1 1 1];
-            leg.EdgeColor = [0.7 0.7 0.7];
+            leg.TextColor = [0.78 0.85 0.94];
+            leg.Color     = [0.05 0.09 0.13];
+            leg.EdgeColor = [0.12 0.19 0.31];
             hold(ax,'off');
         end
 
@@ -647,49 +653,73 @@ classdef ControlSystemsAnalyzer < matlab.apps.AppBase
             %% Figure
             app.UIFigure = uifigure('Visible','off');
             app.UIFigure.Color = BG;
-            app.UIFigure.Position = [50 50 1400 820];
-            app.UIFigure.Name = 'Control Systems Analyzer — D.Kavalieros, Electrical Engineering and Information Technology MSc. & MEd.';
+            ss = get(0,'ScreenSize'); w=min(1280,ss(3)-60); h=min(820,ss(4)-80);
+            app.UIFigure.Position = [max(10,(ss(3)-w)/2) max(10,(ss(4)-h)/2) w h];
+            app.UIFigure.Name = 'Control Systems Analyzer — D. Kavalieros, EE MSc. & MEd.';
             app.UIFigure.Resize = 'on';
 
+            %% Outer grid: 2 rows — top bar + content
+            outerGrid = uigridlayout(app.UIFigure);
+            outerGrid.RowHeight    = {44, '1x'};
+            outerGrid.ColumnWidth  = {'1x'};
+            outerGrid.Padding      = [0 0 0 0];
+            outerGrid.RowSpacing   = 0;
+            outerGrid.BackgroundColor = BG;
+
             %% Top bar
-            app.TopPanel = uipanel(app.UIFigure);
+            app.TopPanel = uipanel(outerGrid);
             app.TopPanel.BackgroundColor = [0.02 0.04 0.08];
             app.TopPanel.BorderType = 'none';
-            app.TopPanel.Position = [0 780 1280 40];
+            app.TopPanel.Layout.Row = 1; app.TopPanel.Layout.Column = 1;
 
-            app.AppTitleLabel = uilabel(app.TopPanel,...
-                'Text','⚙  CONTROL SYSTEMS ANALYZER  —  D.Kavalieros, Electrical Engineering and Information Technology MSc. & MEd.');
+            topG = uigridlayout(app.TopPanel);
+            topG.ColumnWidth  = {'1x', 200};
+            topG.RowHeight    = {'1x'};
+            topG.Padding      = [10 4 10 4];
+            topG.ColumnSpacing = 8;
+            topG.BackgroundColor = [0.02 0.04 0.08];
+
+            titleBox = uigridlayout(topG);
+            titleBox.ColumnWidth = {'1x'};
+            titleBox.RowHeight   = {'1x','1x'};
+            titleBox.Padding     = [0 0 0 0];
+            titleBox.RowSpacing  = 0;
+            titleBox.BackgroundColor = [0.02 0.04 0.08];
+            titleBox.Layout.Row = 1; titleBox.Layout.Column = 1;
+
+            app.AppTitleLabel = uilabel(titleBox,...
+                'Text','⚙  CONTROL SYSTEMS ANALYZER  —  D. Kavalieros, EE MSc. & MEd.');
             app.AppTitleLabel.FontColor  = [0 0.78 0.88];
-            app.AppTitleLabel.FontSize   = 16;
+            app.AppTitleLabel.FontSize   = 14;
             app.AppTitleLabel.FontWeight = 'bold';
             app.AppTitleLabel.FontName   = 'Courier New';
-            app.AppTitleLabel.Position   = [12 10 700 22];
+            app.AppTitleLabel.Layout.Row = 1; app.AppTitleLabel.Layout.Column = 1;
 
-            app.SubTitleLabel = uilabel(app.TopPanel,...
-                'Text','Dimitrios Kavalieros  |  Electrical Engineering and Information Technology MSc. & MEd.');
+            app.SubTitleLabel = uilabel(titleBox,...
+                'Text','Dimitrios Kavalieros  |  Electrical Engineer MSc. & MEd.  |  IEC / IEEE');
             app.SubTitleLabel.FontColor = [0.23 0.33 0.50];
-            app.SubTitleLabel.FontSize  = 11;
+            app.SubTitleLabel.FontSize  = 10;
             app.SubTitleLabel.FontName  = 'Courier New';
-            app.SubTitleLabel.Position  = [12 1 400 12];
+            app.SubTitleLabel.Layout.Row = 2; app.SubTitleLabel.Layout.Column = 1;
 
-            app.CalculateButton = uibutton(app.TopPanel,'push',...
+            app.CalculateButton = uibutton(topG,'push',...
                 'Text','▶  CALCULATE');
-            app.CalculateButton.Position        = [1120 7 148 26];
             app.CalculateButton.BackgroundColor = [0.94 0.65 0];
             app.CalculateButton.FontColor       = [0 0 0];
             app.CalculateButton.FontWeight      = 'bold';
             app.CalculateButton.FontSize        = 13;
+            app.CalculateButton.Layout.Row = 1; app.CalculateButton.Layout.Column = 2;
             app.CalculateButton.ButtonPushedFcn = ...
                 createCallbackFcn(app,@CalcButtonPushed,true);
 
-            %% Main grid (below top bar)
-            app.MainGrid = uigridlayout(app.UIFigure);
-            app.MainGrid.ColumnWidth  = {480,'1x'};
+            %% Main grid (content row)
+            app.MainGrid = uigridlayout(outerGrid);
+            app.MainGrid.ColumnWidth  = {420,'1x'};
             app.MainGrid.RowHeight    = {'1x'};
             app.MainGrid.BackgroundColor = BG;
             app.MainGrid.Padding      = [6 6 6 6];
             app.MainGrid.ColumnSpacing = 8;
-            % NOTE: GridLayout.Position is read-only in R2024b+; removed.
+            app.MainGrid.Layout.Row = 2; app.MainGrid.Layout.Column = 1;
 
             %% Left panel
             app.LeftPanel = uipanel(app.MainGrid);
@@ -804,20 +834,30 @@ classdef ControlSystemsAnalyzer < matlab.apps.AppBase
             note.WordWrap='on';
             note.Layout.Row=4;note.Layout.Column=[1 4];
 
-            %% Right panel
+            %% Right panel — grid so TabGroup fills it completely
             app.RightPanel = uipanel(app.MainGrid);
             app.RightPanel.BackgroundColor = SRF;
             app.RightPanel.BorderColor     = [0.12 0.19 0.31];
             app.RightPanel.Layout.Row = 1; app.RightPanel.Layout.Column = 2;
 
-            app.ResultsTabGroup = uitabgroup(app.RightPanel);
-            app.ResultsTabGroup.Position = [4 4 820 762];
+            rightGrid = uigridlayout(app.RightPanel);
+            rightGrid.ColumnWidth = {'1x'};
+            rightGrid.RowHeight   = {'1x'};
+            rightGrid.Padding     = [2 2 2 2];
+            rightGrid.BackgroundColor = SRF;
+
+            app.ResultsTabGroup = uitabgroup(rightGrid);
+            app.ResultsTabGroup.Layout.Row = 1;
+            app.ResultsTabGroup.Layout.Column = 1;
 
             %% ─ Tab: Block Diagram ─
             app.BlockDiagramTab = uitab(app.ResultsTabGroup,'Title','Block Diagram');
             app.BlockDiagramTab.BackgroundColor = BG;
-            app.BlockAxes = uiaxes(app.BlockDiagramTab);
-            app.BlockAxes.Position = [10 10 800 730];
+            bgGrid = uigridlayout(app.BlockDiagramTab);
+            bgGrid.ColumnWidth = {'1x'}; bgGrid.RowHeight = {'1x'};
+            bgGrid.Padding = [2 2 2 2]; bgGrid.BackgroundColor = BG;
+            app.BlockAxes = uiaxes(bgGrid);
+            app.BlockAxes.Layout.Row = 1; app.BlockAxes.Layout.Column = 1;
             app.BlockAxes.Color    = [0.02 0.04 0.08];
             app.BlockAxes.XAxis.Visible = 'off';
             app.BlockAxes.YAxis.Visible = 'off';
@@ -895,12 +935,15 @@ classdef ControlSystemsAnalyzer < matlab.apps.AppBase
             %% ─ Tab: Root Locus ─
             app.RLocusTab = uitab(app.ResultsTabGroup,'Title','Root Locus');
             app.RLocusTab.BackgroundColor = BG;
-            app.RLocusAxes = uiaxes(app.RLocusTab);
-            app.RLocusAxes.Position = [10 10 800 730];
+            rlGrid = uigridlayout(app.RLocusTab);
+            rlGrid.ColumnWidth = {'1x'}; rlGrid.RowHeight = {'1x'};
+            rlGrid.Padding = [2 2 2 2]; rlGrid.BackgroundColor = BG;
+            app.RLocusAxes = uiaxes(rlGrid);
+            app.RLocusAxes.Layout.Row = 1; app.RLocusAxes.Layout.Column = 1;
             app.RLocusAxes.Color    = [0.027 0.063 0.118];
-            app.RLocusAxes.XColor   = [0.53 0.60 0.72];
-            app.RLocusAxes.YColor   = [0.53 0.60 0.72];
-            app.RLocusAxes.GridColor= [0.05 0.11 0.19];
+            app.RLocusAxes.XColor   = [1 1 1];
+            app.RLocusAxes.YColor   = [1 1 1];
+            app.RLocusAxes.GridColor= [0.12 0.20 0.35];
             app.RLocusAxes.FontName = 'Courier New';
 
             %% ─ Tab: Bode ─
@@ -918,24 +961,27 @@ classdef ControlSystemsAnalyzer < matlab.apps.AppBase
             app.BodeMagAxes = uiaxes(bodeg);
             app.BodeMagAxes.Layout.Row=2;app.BodeMagAxes.Layout.Column=1;
             app.BodeMagAxes.Color=[0.027 0.063 0.118];
-            app.BodeMagAxes.XColor=[0.53 0.60 0.72];app.BodeMagAxes.YColor=[0.53 0.60 0.72];
-            app.BodeMagAxes.GridColor=[0.05 0.11 0.19];app.BodeMagAxes.FontName='Courier New';
+            app.BodeMagAxes.XColor=[1 1 1];app.BodeMagAxes.YColor=[1 1 1];
+            app.BodeMagAxes.GridColor=[0.12 0.20 0.35];app.BodeMagAxes.FontName='Courier New';
 
             app.BodePhaseAxes = uiaxes(bodeg);
             app.BodePhaseAxes.Layout.Row=3;app.BodePhaseAxes.Layout.Column=1;
             app.BodePhaseAxes.Color=[0.027 0.063 0.118];
-            app.BodePhaseAxes.XColor=[0.53 0.60 0.72];app.BodePhaseAxes.YColor=[0.53 0.60 0.72];
-            app.BodePhaseAxes.GridColor=[0.05 0.11 0.19];app.BodePhaseAxes.FontName='Courier New';
+            app.BodePhaseAxes.XColor=[1 1 1];app.BodePhaseAxes.YColor=[1 1 1];
+            app.BodePhaseAxes.GridColor=[0.12 0.20 0.35];app.BodePhaseAxes.FontName='Courier New';
 
             %% ─ Tab: Nichols ─
             app.NicholsTab = uitab(app.ResultsTabGroup,'Title','Nichols');
             app.NicholsTab.BackgroundColor = BG;
-            app.NicholsAxes = uiaxes(app.NicholsTab);
-            app.NicholsAxes.Position = [10 10 800 730];
+            nichGrid = uigridlayout(app.NicholsTab);
+            nichGrid.ColumnWidth = {'1x'}; nichGrid.RowHeight = {'1x'};
+            nichGrid.Padding = [2 2 2 2]; nichGrid.BackgroundColor = BG;
+            app.NicholsAxes = uiaxes(nichGrid);
+            app.NicholsAxes.Layout.Row = 1; app.NicholsAxes.Layout.Column = 1;
             app.NicholsAxes.Color    = [0.027 0.063 0.118];
-            app.NicholsAxes.XColor   = [0.53 0.60 0.72];
-            app.NicholsAxes.YColor   = [0.53 0.60 0.72];
-            app.NicholsAxes.GridColor= [0.05 0.11 0.19];
+            app.NicholsAxes.XColor   = [1 1 1];
+            app.NicholsAxes.YColor   = [1 1 1];
+            app.NicholsAxes.GridColor= [0.12 0.20 0.35];
             app.NicholsAxes.FontName = 'Courier New';
 
             app.UIFigure.Visible = 'on';
