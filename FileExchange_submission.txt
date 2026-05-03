@@ -3,13 +3,27 @@ Control Systems Analyzer — Interactive MATLAB App
 
 
 === SHORT DESCRIPTION (1 line) ===
-Interactive dark-theme MATLAB app for closed-loop control system analysis: Block Diagram, Routh–Hurwitz, Root Locus, Bode, Nichols, Poles/Zeros.
+Interactive dark-theme MATLAB app for closed-loop control system analysis: Block Diagram, Routh–Hurwitz, Root Locus, Bode, Nichols, Poles/Zeros, Step Response (ζ, ωn, h%, tr, th, ts).
 
 
 === FULL DESCRIPTION ===
 Control Systems Analyzer is a single-file MATLAB App (classdef) for the analysis of linear time-invariant (LTI) control systems in the frequency and time domain.
 
-Designed for students, educators, and engineers, the app provides a clean dark-theme interface with 7 analysis tabs that update automatically whenever input values change.
+Designed for students, educators, and engineers, the app provides a clean dark-theme interface with 8 analysis tabs that update automatically whenever input values change.
+
+────────────────────────────────────────
+WHAT'S NEW IN v0.2
+────────────────────────────────────────
+
+► Step Response tab added (8th tab)
+   - Annotated step response plot for the closed-loop system T(s)
+   - Automatic computation of all standard time-domain specs:
+     ζ (damping ratio), ωn (natural frequency, rad/s),
+     h% (percentage overshoot), tr (rise time),
+     th (peak time), ts at 2% and 5% criteria
+   - Dominant-pole extraction for ζ and ωn (valid for any system order)
+   - Color-coded metrics display: green / orange / red by overshoot level
+   - Plot annotations: peak marker, rise time line, settling time line, ±2% band
 
 ────────────────────────────────────────
 FEATURES
@@ -51,6 +65,13 @@ FEATURES
    Open-loop frequency response on the Nichols plane
    with critical point (−180°, 0 dB) marker.
 
+► Step Response  [NEW in v0.2]
+   Closed-loop unit step response with full time-domain analysis:
+   - ζ and ωn extracted from dominant closed-loop poles
+   - h% overshoot, tr rise time, th peak time
+   - ts settling time at both 2% and 5% criteria
+   - Annotated plot with ±2% steady-state band
+
 ────────────────────────────────────────
 USAGE
 ────────────────────────────────────────
@@ -72,6 +93,14 @@ REQUIREMENTS
 - Control System Toolbox
 
 ────────────────────────────────────────
+CHANGELOG
+────────────────────────────────────────
+
+v0.2  — Step Response tab: ζ, ωn, h%, tr, th, ts(2%), ts(5%), annotated plot
+v0.1  — Initial release: 7 tabs (Block Diagram, TF, Routh, Poles/Zeros,
+         Root Locus, Bode, Nichols)
+
+────────────────────────────────────────
 AUTHOR
 ────────────────────────────────────────
 
@@ -83,7 +112,9 @@ GitHub: https://github.com/jimkava/Control_System_Analyze-
 === TAGS ===
 control systems, transfer function, bode plot, root locus, routh hurwitz,
 nichols chart, stability analysis, frequency response, closed loop, LTI,
-matlab app, uifigure, dark theme, feedback control, poles zeros
+matlab app, uifigure, dark theme, feedback control, poles zeros,
+step response, damping ratio, natural frequency, overshoot, rise time,
+settling time, time domain analysis
 
 
 === CATEGORY ===
