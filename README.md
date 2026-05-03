@@ -3,6 +3,7 @@
 **Author:** Dimitrios Kavalieros — Electrical Engineering and Information Technology MSc. & MEd.
 
 [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=jimkava/Control_System_Analyze-&file=ControlSystemsAnalyzer.m)
+[![View Control Systems Analyzer on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/183790-control-systems-analyzer)
 
 A MATLAB App for analysis of automatic control systems.  
 Built with MATLAB R2019b+ and the **Control System Toolbox**.
