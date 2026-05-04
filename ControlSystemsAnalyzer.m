@@ -853,7 +853,7 @@ classdef ControlSystemsAnalyzer < matlab.apps.AppBase
             app.AppTitleLabel.Layout.Row = 1; app.AppTitleLabel.Layout.Column = 1;
 
             app.SubTitleLabel = uilabel(titleBox,...
-                'Text','Dimitrios Kavalieros  |  D.Kavalieros — Dipl. EE & IT, MSc. & MEd.');
+                'Text','Dimitrios Kavalieros  |  Electrical Engineering and Information Technology MSc. & MEd.');
             app.SubTitleLabel.FontColor = [0.23 0.33 0.50];
             app.SubTitleLabel.FontSize  = 10;
             app.SubTitleLabel.FontName  = 'Courier New';
