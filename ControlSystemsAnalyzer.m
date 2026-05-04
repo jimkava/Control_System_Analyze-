@@ -812,7 +812,7 @@ classdef ControlSystemsAnalyzer < matlab.apps.AppBase
             app.UIFigure.Color = BG;
             ss = get(0,'ScreenSize'); w=min(1280,ss(3)-60); h=min(820,ss(4)-80);
             app.UIFigure.Position = [max(10,(ss(3)-w)/2) max(10,(ss(4)-h)/2) w h];
-            app.UIFigure.Name = 'Control Systems Analyzer — D. Kavalieros, E.E.I. MSc. & MEd.';
+            app.UIFigure.Name = 'Control Systems Analyzer';
             app.UIFigure.Resize = 'on';
 
             %% Outer grid: 2 rows — top bar + content
