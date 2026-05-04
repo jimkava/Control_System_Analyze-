@@ -99,5 +99,5 @@ Control_System_Analyze-/
 ## Author
 
 **Dimitrios Kavalieros**  
-Electrical Engineer MSc. & MEd.  
+Electrical Engineering and Information Technology MSc. & MEd.
 [github.com/jimkava](https://github.com/jimkava)
